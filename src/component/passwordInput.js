@@ -2,7 +2,8 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
     View, 
-    StyleSheet
+    StyleSheet,
+    TextInput
 } from 'react-native';
 import {
     TextField
@@ -42,9 +43,10 @@ export default class PasswordInputText extends React.Component {
     render() {
         return (
             <View>
-                <TextField {...this.props}
-                           secureTextEntry={this.state.password}/>
-                <Icon style={styles.icon}
+                <TextInput {...this.props}
+                           secureTextEntry={this.state.password}
+                           label="Password"/>
+                <Icon style={[styles.icon, this.props.iconStyle]}
                       name={this.state.icEye}
                       size={this.props.iconSize}
                       color={this.props.iconColor}
@@ -68,6 +70,5 @@ export const styles = StyleSheet.create({
 
 PasswordInputText.defaultProps = {
 iconSize:25,
-label: 'Password',
 }
     
